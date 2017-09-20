@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script src="node_modules/vue/dist/vue.js"></script>
+    
+    <title>GE Digital Transformation Workshops</title>
+    </head>
+  <body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">
+       <img style="position: relative; top: -3px;" class="logo" src="assets/imgs/ge_monogram_primary_gray_RGB.png">
+        Digital Transformation Workshops</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Workshops</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled"  href="#">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Learn More</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Contact Us</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <!--<div class="container">-->
+      <div class="jumbotron hero_banner">
+
+            <div class="row justify-content-center align-items-end">
+                <div class="container">
+                <div class="col-md-12">
+                    <div class='searchbox_wrapper text-center'>
+                        <br>
+                        <h3 class="search_title">Find Something Interesting to Learn</h3>
+                        <input class="search_text" type="text" placeholder="Search for something exciting"/>
+                        <button class="btn search_button">Search</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+      </div>
+    <!--</div>-->
+
+    <div class="container" style="position: relative; top: 50px;">
+        <div class='row'>
+            <div class='col-md-12 text-center'>
+                <h1>Workshops at The Banks</h1>
+                <div class="row" id="workshops">
+                    <div style="margin-top: 20px;" class="col-md-4" v-for='item in items' data-toggle="modal" data-target="#exampleModal">
+                        <div class="workshop_summary_box" v-on:click="select(item)">
+                            <img width='100%' height='178' v-bind:src="item.image">
+                            <div class="summary-text_wrapper">
+                                <div class="summary-date">{{item.date}}</div>
+                                <div class="summary-title">{{item.name}}</div>
+                                <div class="summary-short-desc">{{item.short_description}}</div>
+                            </div>
+                            <div class="summary-host-wrapper">
+                                    <img class='summary-host-image' v-bind:src="item.host_image"/>
+                                    <div>
+                                        <div class="host-name">{{item.host_name}}</div>
+                                        <div class="host-title">{{item.host_title}}</div>
+                                        <div class="host-title">{{item.host_team}}</div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;" class="col-md-4">
+                        <div class="workshop_summary_box">
+                            <br>
+                            <br>
+                            <a href="http://forms.ge.com/create/223033">
+                                <img width='70%' src="assets/imgs/new_workshop.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="workshop_detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{selectedItem.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+            <img width="100%" v-bind:src="selectedItem.image">
+        </div>
+        <div class='section_header'>Description</div>
+        <div class='section_text'>{{selectedItem.description}}</div>
+
+        <div style="display: flex">
+            <div style="width: 50%">
+                <div class='section_header'>When</div>
+                <div class='section_text'>{{selectedItem.when}}</div>
+
+                 <div class='section_header'>Where</div>
+                <div class='section_text'>{{selectedItem.where}}</div>
+            </div>
+            <div style="width: 50%">
+                <div class='section_header'>Pre-Requirements</div>
+                <ul>
+                    <li class='section_text' v-for='item in selectedItem.prereqs'>
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+
+        <div class='section_header'>Agenda</div>
+        <ul>
+            <li class='section_text' v-for='item in selectedItem.agenda'>
+                {{item.title}}<br>
+                <span>{{item.description}}</span>
+            </li>
+        </ul>
+
+        <div class='section_header'>Useful Links</div>
+        <ul>
+            <li class='section_text' v-for='item in selectedItem.links'>
+                {{item.name}}<br>
+                <span>{{item.url}}</span>
+            </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <script src="workshops.js"></script>
+    <script src="index.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>
