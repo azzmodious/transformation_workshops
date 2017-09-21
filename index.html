@@ -10,18 +10,18 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <script src="node_modules/vue/dist/vue.js"></script>
     
-    <title>GE Digital Transformation Workshops</title>
+    <title>GE Digital Transformation Workshop</title>
     </head>
   <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="#">
-       <img style="position: relative; top: -3px;" class="logo" src="assets/imgs/ge_monogram_primary_gray_RGB.png">
+       <img style="position: relative; top: -3px;" class="logo" src="assets/imgs/ge_monogram_primary_white_RGB.png">
         Digital Transformation Workshops</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav justify-content-end">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
@@ -38,10 +38,7 @@
             <a class="nav-link disabled" href="#">Contact Us</a>
           </li>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+       
       </div>
     </nav>
 
@@ -67,9 +64,80 @@
         <div class='row'>
             <div class='col-md-12 text-center'>
                 <h1>Workshops at The Banks</h1>
+                <div v-bind:style="style" class="row" id="workshop_detail_inpage">
+                    <div class="col-md-12">
+                        <div class="workshop_details" style='position: relative; top: -300px'>
+                            <div style="display: flex;">
+                                <div style="width: 60%"><img src='assets/imgs/chatbot.png' width='100%'></div>
+                                <div class='header_wrapper'>
+                                    <h3>Oct 16th</h3>
+                                    <h1>{{selectedItem.name}}</h1>
+                                    <div style="display: flex; margin-bottom: 30px; margin-top: 30px;">
+                                        <div>
+                                            <img height='70' src='assets/imgs/max_randolph.png'>
+                                        </div>
+                                        <div style="margin-left: 10px;">
+                                            <h4>{{selectedItem.host_name}}</h4>
+                                            <div>{{selectedItem.host_title}}</div>
+                                            <div>GE Digital - Innovation Studio</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn btn-success btn-block">Sign Up</button>
+                                    <button class="btn btn-primary btn-block">Save To Calendar</button>
+                                </div>
+                            </div>
+                            <div class='workshop_details_wrapper' style="display: flex">
+                                    <div style="width: 60%; text-align: left">
+                                        <h5>Description</h5>
+                                        <p>
+                                            {{selectedItem.description}}
+                                        </p>
+                                        
+                                        <h5>Agenda</h5>
+                                        <ul>
+                                                <li class='section_text' v-for='item in selectedItem.agenda'>
+                                                        {{item.title}}
+                                                </li>
+                                        </ul>
+
+                                    </div> 
+                                    <div style="width: 40%">
+                                        <h5>Data and Time</h5>
+                                        <p>{{selectedItem.when}}</p>
+                                        
+                                        <h5>Location</h5>
+                                        <p>Cincinnati Banks<br>
+                                        {{selectedItem.where}}</p>
+                                        
+                                        <h5>Requirements</h5>
+                                        <p>
+                                            <ul>
+                                                <li class='section_text' v-for='item in selectedItem.prereqs'>
+                                                        <a href=''>{{item.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+
+                                        <h5>Useful Links</h5>
+                                        <p>
+                                            <ul>
+                                                <li class='section_text' v-for='item in selectedItem.links'>
+                                                            <a href=''>{{item.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        <hr>
+                                        <div><button v-on:click='close()' class="btn btn-primary">Back</button></div>
+                                    </div>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row" id="workshops">
-                    <div style="margin-top: 20px;" class="col-md-4" v-for='item in items' data-toggle="modal" data-target="#exampleModal">
+                    <div style="margin-top: 20px;" class="col-md-4" v-for='item in items'>
                         <div class="workshop_summary_box" v-on:click="select(item)">
+                            
                             <img width='100%' height='178' v-bind:src="item.image">
                             <div class="summary-text_wrapper">
                                 <div class="summary-date">{{item.date}}</div>
@@ -100,6 +168,8 @@
         </div>
         
     </div>
+
+    <!--<iframe style="height: 300px" src='https://webchat.botframework.com/embed/coretechbot2?s=HkQq8nnzydM.cwA.gEc.GWoPIgYq8bZQDvFUaWEXNZ9svdyHOeWf5LHzfDHKTQs'></iframe>-->
 
     <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="workshop_detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

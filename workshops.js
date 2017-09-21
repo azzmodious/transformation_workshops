@@ -57,6 +57,39 @@ var workshop_data = [
         host_team: 'GE Digital - GEIX Cloud Team' 
     }, 
     {
+        name:'Chat Bots 101: Azure & Natural Language Processing',
+        image: 'assets/imgs/chatbot.png',
+        date: 'Friday, Nov 17 1:00 PM in Room 637', 
+        when: 'Friday, Nov 17 1:00 PM',
+        where: 'Room 637',
+        prereqs: [
+            {name: 'Download NodeJS', url: 'www.google.com'}, 
+            {name: 'Download Git', url: 'www.google.com'},
+            {name: 'Microsoft Bot Framework', url: 'www.google.com'}
+        ],
+        links: [
+            {name: 'BrillianYOU - NodeJS Training', url: 'www.angular.io'},
+            {name: 'BrillianYOU - GitHub Training', url: 'www.angular.io'},
+        ],
+        agenda: [
+            {title: 'What is a Chatbot?', description: 'This will be a general history and usage of the GEIX platform'},
+            {title: 'What are Chatbots good for?', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
+            {title: 'Examples of Chatbots', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
+            {title: 'MyTech and Skype', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
+            {title: 'Spin Up a New Bot in Azure', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
+            {title: 'Create Intents & Uterances in LUIS', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
+            {title: 'QnA Maker for FAQs', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
+            {title: 'Send an Email with a Chat Dialog', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
+            {title: 'Deploying a ChatBot as a WebApp', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'}
+        ],
+        short_description: 'This will be a brief overview on what chat bots are, what they can do and how to build them', 
+        description: 'Chatbots are an interesting new way to solve business problems around GE. Microsoft has build the Bot Framework to allow us to build bots quickly and cheaply. This workshop will walk you through what a bot is, how to build your own and some examples of the cool things being down with bots', 
+        host_name: 'Max Randolph', 
+        host_image: 'assets/imgs/max_randolph.png',
+        host_title: 'Staff User Experience Engineer', 
+        host_team: 'GE Digital - Innovation Studio' 
+    },
+    {
         name:'Using Chef to Deploy a Web App to the Cloud',
         image: 'assets/imgs/chef.png',
         date: 'Friday, Oct 20 1:00 PM in Room 637', 
@@ -86,38 +119,7 @@ var workshop_data = [
         host_title: 'Sr. Build & Release Engineer', 
         host_team: 'GE Digital - Predix Cloud Team' 
     }, 
-    {
-        name:'Chat Bots 101: Azure & Natural Language Processing',
-        image: 'assets/imgs/chatbot.png',
-        date: 'Friday, Nov 17 1:00 PM in Room 637', 
-        when: 'Friday, Nov 17 1:00 PM',
-        where: 'Room 637',
-        prereqs: [
-            {name: 'Download NodeJS', url: 'www.google.com'}, 
-            {name: 'Download Git', url: 'www.google.com'},
-            {name: 'Microsoft Bot Framework', url: 'www.google.com'}
-        ],
-        links: [
-            {name: 'Node JS', url: 'www.angular.io'}
-        ],
-        agenda: [
-            {title: 'What is a Chatbot?', description: 'This will be a general history and usage of the GEIX platform'},
-            {title: 'What are Chatbots good for?', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
-            {title: 'Examples of Chatbots', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
-            {title: 'MyTech and Skype', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
-            {title: 'Spin Up a New Bot in Azure', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
-            {title: 'Create Intents & Uterances in LUIS', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
-            {title: 'QnA Maker for FAQs', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
-            {title: 'Send an Email with a Chat Dialog', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'},
-            {title: 'Deploying a ChatBot as a WebApp', description: 'This section will talk about the appropriate usage of the GEIX and why its better than AWS'}
-        ],
-        short_description: 'This will be a brief overview on what chat bots are, what they can do and how to build them', 
-        description: 'Chatbots are an interesting new way to solve business problems around GE. Microsoft has build the Bot Framework to allow us to build bots quickly and cheaply. This workshop will walk you through what a bot is, how to build your own and some examples of the cool things being down with bots', 
-        host_name: 'Max Randolph', 
-        host_image: 'assets/imgs/max_randolph.png',
-        host_title: 'Staff User Experience Engineer', 
-        host_team: 'GE Digital - Innovation Studio' 
-    },
+    
     {
         name:'Intro to 3D Printing: Makerbot 101',
         image: 'assets/imgs/3dprinter.png',

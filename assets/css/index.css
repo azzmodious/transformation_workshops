@@ -9,6 +9,15 @@ h1 {
     font-weight: 300;
 }
 
+h3 {
+    font-size: 20px;
+    font-weight: 300;
+}
+h4 {
+    font-size: 20px;
+    font-weight: 300;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -37,6 +46,7 @@ h1 {
     background-attachment: fixed; 
     background-position: 0px 600px;
     background-size: 100% 600px;
+    border: 1px solid #CCCCCC;
 }
 
 .searchbox_wrapper {
@@ -123,4 +133,28 @@ h1 {
 .section_text {
     font-weight: 300;
     
+}
+
+.modal-dialog{
+    width: 1200px;
+}
+
+.workshop_details{
+    width: 100%; 
+    height: auto;
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    padding: 10px; 
+}
+
+.header_wrapper{
+    margin-left: 10px;
+    text-align: left;
+    width: 40%; 
+}
+
+.workshop_details_wrapper{
+    padding: 10px; 
+    text-align: left;
+    margin-top: 20px;
 }
